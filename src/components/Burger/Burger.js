@@ -15,9 +15,9 @@ const burger = (props) => {
       return arr.concat(el);
     }, []);
 
-    if (mappedIngredients.length === 0) {
-      mappedIngredients = <p>Add some ingredients to build your burger!!</p>;
-    }
+  if (mappedIngredients.length === 0) {
+    mappedIngredients = <p>Add some ingredients to build your burger!!</p>;
+  }
 
   return (
     <div className={classes.burger}>

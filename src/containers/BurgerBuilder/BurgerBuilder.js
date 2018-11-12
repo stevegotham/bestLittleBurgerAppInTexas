@@ -34,6 +34,7 @@ class BurgerBuilder extends Component {
       }, 0);
     this.setState({orderable: sum > 0});
   }
+  
   addIngredientHandler = (type) =>  {
     const updatedIngredients = {
       ...this.state.ingredients
@@ -50,7 +51,7 @@ class BurgerBuilder extends Component {
     });
     this.updateOrderable(updatedIngredients);
   }
-
+  
   removeIngredientHandler = (type) => {
     const updatedIngredients = {
       ...this.state.ingredients
@@ -69,6 +70,10 @@ class BurgerBuilder extends Component {
     this.updateOrderable(updatedIngredients);
   }
 
+  cancelCheckoutHandler = () => {
+    this.setState({checkingOut: false})
+  }
+
   checkoutHandler = () => {
     this.setState({checkingOut: true})
   }
@@ -84,9 +89,12 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal checkedOut={this.state.checkingOut}>
+        <Modal 
+          show={this.state.checkingOut}
+          modalClosed={this.cancelCheckoutHandler}>
           <OrderSummary
-            ingredients={this.state.ingredients} />
+            ingredients={this.state.ingredients}
+            clicked={this.cancelCheckoutHandler} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
