@@ -70,12 +70,16 @@ class BurgerBuilder extends Component {
     this.updateOrderable(updatedIngredients);
   }
 
+  checkoutHandler = () => {
+    this.setState({checkingOut: true})
+  }
+  
   cancelCheckoutHandler = () => {
     this.setState({checkingOut: false})
   }
-
-  checkoutHandler = () => {
-    this.setState({checkingOut: true})
+  
+  continueCheckoutHandler = () => {
+    alert('You are checking out!');
   }
 
   render () {
@@ -94,7 +98,9 @@ class BurgerBuilder extends Component {
           modalClosed={this.cancelCheckoutHandler}>
           <OrderSummary
             ingredients={this.state.ingredients}
-            clicked={this.cancelCheckoutHandler} />
+            cancel={this.cancelCheckoutHandler}
+            continue={this.continueCheckoutHandler}
+            orderTotal={this.state.totalPrice} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls

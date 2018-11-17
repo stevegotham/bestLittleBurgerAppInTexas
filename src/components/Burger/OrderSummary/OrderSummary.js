@@ -17,6 +17,7 @@ const orderSummary = (props) => {
   return (
     <Aux>
       <h3>Your Order</h3>
+      <h4>Your Total: <span>{props.orderTotal.toFixed(2)}</span></h4>
       <ul>
         {ingredients}
       </ul>
@@ -26,7 +27,7 @@ const orderSummary = (props) => {
         clicked={props.cancel}>Cancel</Button>
       <Button 
         btnType="Success"
-        clicked={props.proceed}>Continue</Button>
+        clicked={props.continue}>Continue</Button>
     </Aux>
   );
 }
