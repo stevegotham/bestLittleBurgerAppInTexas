@@ -20,7 +20,7 @@ const burger = (props) => {
   }
 
   return (
-    <div className={classes.burger}>
+    <div className={classes.Burger}>
       <BurgerIngredient type="bread-top" />
       {mappedIngredients}
       <BurgerIngredient type="bread-bottom" />
