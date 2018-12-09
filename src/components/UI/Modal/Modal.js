@@ -7,7 +7,7 @@ import classes from './Modal.css';
 class Modal extends Component {
   
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.show !== this.props.show;
+    return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
   }
   
   render() {
@@ -15,7 +15,7 @@ class Modal extends Component {
       <Aux>
         <Backdrop 
           show={this.props.show}
-          clicked={this.props.modalClosed} />
+          clicked={this.props.clicked} />
         <div
           className={classes.Modal}
           style={{
